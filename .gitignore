@@ -1,0 +1,33 @@
+# Dependency directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Configuration and Secrets (CRITICAL)
+.env
+client/.env
+server/.env
+server/config/config.env
+*.env
+
+# Build and Production folders
+dist/
+build/
+client/dist/
+server/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Uploads / Temp files
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Editor/OS specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
