@@ -7,7 +7,7 @@ import {
   updatePassword,
   updateProfile,
 } from "../../store/slices/authSlice";
-import { toggleAuthPopup } from "../../store/slices/popupSlice";
+import { toggleAuthPopup, toggleSidebar } from "../../store/slices/popupSlice";
 
 const ProfilePanel = () => {
   const dispatch = useDispatch();

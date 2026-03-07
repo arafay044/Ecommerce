@@ -23,23 +23,40 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { getUser } from "./store/slices/authSlice";
 import { Loader } from "lucide-react";
+import { fetchAllProducts } from "./store/slices/productSlice";
 
 const App = () => {
-  const {authUser, isCheckingAuth} = useSelector((state) => state.auth);
+  const { authUser, isCheckingAuth } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUser());
   }, [getUser]);
-  if(isCheckingAuth && !authUser) {
+
+  useEffect(() => {
+    dispatch(
+      fetchAllProducts({
+        category: "",
+        price: "0-10000",
+        search: "",
+        ratings: "",
+        availability: "",
+        page: 1,
+      }),
+    );
+  }, []);
+
+  const { products } = useSelector((state) => state.product);
+
+  if ((isCheckingAuth && !authUser) || !products) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader className="size-10 animate-spin"/>
+        <Loader className="size-10 animate-spin" />
       </div>
-    )
+    );
   }
   return (
     <>
@@ -75,4 +92,3 @@ const App = () => {
 };
 
 export default App;
-
