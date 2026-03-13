@@ -14,7 +14,7 @@ const MonthlySalesChart = () => {
   const months = getLastNMonths(4).map(m => m.month);
   const filled = months.map(m => {
     const found = monthlySales?.find(item => item.month === m);
-    return {month: m, totalSales: found?.totalSales || 0};
+    return {month: m, totalSales: found?.totalsales || 0};
   })
   return <>
     <div className="bg-white p-4 rounded-xl shadow-md">
