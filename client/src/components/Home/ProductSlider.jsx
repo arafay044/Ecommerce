@@ -63,7 +63,7 @@ const ProductSlider = ({ title, products }) => {
               <img
                 src={product.images[0]?.url}
                 alt={product.name}
-                className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-300"
+                className="w-full h-52 object-contain group-hover:scale-110 transition-transform duration-300"
               />
 
               {/* Badges */}
