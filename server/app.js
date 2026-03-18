@@ -13,7 +13,7 @@ import Stripe from "stripe";
 import database from "./database/db.js";
 
 const app = express();
-config({ path: "./config/config.env" });
+config();
 
 // middlewares
 app.use(cors({
